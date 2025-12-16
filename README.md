@@ -16,7 +16,45 @@ Master C programming through hands-on practice, covering:
 
 ## Compilation Guide
 
-### 1. Basic Compilation
+### Using Makefile (Recommended)
+
+The project includes a `Makefile` that handles compilation with optimal debugging and warning flags. This is the easiest and most recommended way to build.
+
+#### Quick Start with Make
+
+```bash
+# Build all programs (default)
+make
+
+# Build specific program
+make try
+make pry
+
+# Build and run
+make run-try
+make run-pry
+make run-all
+
+# Debug mode (with gdb)
+make debug-try
+make debug-pry
+
+# Strict mode (all warnings treated as errors)
+make strict
+
+# Release build (optimized)
+make release
+
+# Clean up
+make clean
+```
+
+See all available commands:
+```bash
+make help
+```
+
+### 1. Manual Compilation (Without Make)
 
 Compile a single C file into an executable:
 
@@ -30,9 +68,9 @@ gcc try.c -o try
 gcc pry.c -o pry
 ```
 
-### 2. Compilation with Common Options
+### 2. Manual Compilation with Common Options
 
-#### Enable All Warnings
+If you prefer not to use Make, compile manually with specific flags:
 ```bash
 gcc filename.c -o output_name -Wall
 ```
@@ -61,6 +99,11 @@ Optimization levels: `-O0` (none), `-O1`, `-O2` (recommended), `-O3` (aggressive
 gcc filename.c -o output_name -Wall -Wextra -g
 ```
 This combines warnings for development and debugging symbols for troubleshooting.
+
+**Why these flags?**
+- `-Wall`: Catches all common warnings
+- `-Wextra`: Catches additional potential issues
+- `-g`: Includes debugging symbols for use with `gdb`
 
 ### 3. Multiple Files (Advanced)
 
