@@ -6,11 +6,12 @@ int main(){
     int y = 2;
     float answer = (float) x / y;
     printf("The answer is : %.1f\n", answer);       // This outputs the number as int without the remainder in decimal
+    printf("The value of division inside the print statement %d", x/y);
 
     // Set the maximum possible scorre inthe game
     int maxScore = 500;
 
-    // Set the players score 
+    // Set the players score
     int playerScore = 423;
 
     // calculate the score of the player in percentage and return the actual float value
@@ -25,7 +26,7 @@ int main(){
 
     // It is good practice among C programmers to give constants names in Capital
     const char LANGUAGE[] = "ENG";
-    
+
     ++x;
     printf("Value of X after increment %d\n", x);
 

@@ -1,1 +1,22 @@
 *.out
+.bin
+*.log
+*.tmp
+.DS_Store
+
+// Generated files
+/build/
+/dist/
+// Files to ignore for C programs
+*.o
+*.exe
+*.obj
+*.dll
+*.lib
+*.pdb
+// IDE specific files
+.vscode/
+.idea/
+*.suo
+*.user
+*.ncb
