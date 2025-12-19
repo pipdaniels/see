@@ -23,4 +23,7 @@
 
 pry
 try
+bry
 ./pry.dSYM
+*./pry.*
+

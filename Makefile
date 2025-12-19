@@ -4,11 +4,11 @@
 CC = gcc
 CFLAGS = -Wall -Wextra -g -O0
 DEBUGFLAGS = -Wall -Wextra -g -O0 -DDEBUG
-LDFLAGS = 
+LDFLAGS =
 
 # Source files and output names
-SOURCES = try.c pry.c
-TARGETS = try pry
+SOURCES = try.c pry.c bry.c
+TARGETS = try pry bry
 
 # Default target
 all: $(TARGETS)
@@ -23,10 +23,16 @@ pry: pry.c
 	$(CC) pry.c -o pry $(CFLAGS)
 	@echo "✓ Built: pry (with debugging symbols and warnings enabled)"
 
+# Build bry program
+bry: bry.c
+	$(CC) bry.c -o bry $(CFLAGS)
+	@echo " Built bry (with debugging symbols and warnings enables)"
+
+
 # Debug target - build with debug symbols
 debug: CFLAGS = $(DEBUGFLAGS)
 debug: clean all
-	@echo "✓ Debug build complete. Use: gdb ./try or gdb ./pry"
+	@echo "✓ Debug build complete. Use: gdb ./try or gdb ./pry or gdb ./bry"
 
 # Run try program
 run-try: try
@@ -36,12 +42,19 @@ run-try: try
 run-pry: pry
 	./pry
 
+# Run bry program
+run-bry: bry
+	./bry
+
 # Run all programs
 run-all: $(TARGETS)
 	@echo "\n=== Running try ==="
 	./try
 	@echo "\n=== Running pry ==="
 	./pry
+	@echo "\n=== Running bry ==="
+	./bry
+
 
 # Debug try with gdb
 debug-try: debug
@@ -50,6 +63,11 @@ debug-try: debug
 # Debug pry with gdb
 debug-pry: debug
 	gdb ./pry
+
+
+# Debug pry with gdb
+debug-bry: debug
+	gdb ./bry
 
 # Clean compiled files
 clean:
