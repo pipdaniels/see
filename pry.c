@@ -1,10 +1,11 @@
 #include <stdio.h>
 #include <stdbool.h>
 
+// varibale = (condition) ? printf(if consition is true) : printf(if condition is false);
 
 int main(){
-    int x = 5;
-    int y = 2;
+    int x = 40;
+    int y = 56;
     float answer = (float) x / y;
     printf("The answer is : %.1f\n", answer);       // This outputs the number as int without the remainder in decimal
     printf("The value of division inside the print statement is: %d\n", x/y);
@@ -82,6 +83,60 @@ int main(){
     }
     else {
         printf("X is not greater than Y\n");
+    }
+
+    int time = 12;
+    if (time <= 11){
+        printf("Hello there, good morning!\n");
+    } else if (time < 22) {
+        printf("Good day!\n");
+    } else {
+        printf("Good Evening!.\n");
+    }
+
+    int age = 23;
+    //variable = (condition) ? printf(exprressionTrue) : printf(expressionsFalse)
+
+    age = (age < 18) ? printf("Hellow you are not an adult yet!\n") : printf("Hi, you are an adult already, and have been an adult for the past %d years.\n", age - 18);
+
+    if (x > 10){
+        printf("X is greater than 10\n");
+        if (y >20){
+            printf("Uh oh, Y is also greater than 20>>>\n");
+        }
+    } else printf("X is less than 10\n");
+
+    int z = 30;
+    bool isCitizen = true;
+    if (age >= 18)
+    {
+        printf("Congratulations! You are an adult\n");
+        if (isCitizen)
+        {
+            printf("Yes, You are also elligible to vote as a citizen!\n");
+        }
+        else
+        {
+            printf("But you need to be a citizen to vote!\n");
+        }
+    }
+    else
+    {
+        printf("Not old enough to vote!\n");
+    }
+
+    if (x > y && z > x){
+        printf("Both conditions are true!\n");
+    }
+    else
+    {
+        printf("At least one of the conditions is false!\n");
+    }
+
+    if (x < y || z > x){
+        printf("At least one of the conditions is true\n");
+    } else {
+        printf("None of them is true\n");
     }
 
     return 0;
