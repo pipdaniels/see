@@ -122,7 +122,7 @@ do {
     i++;
   } while (i < 4);
 
-  int number;
+  /* int number;
   do {
     printf("Enter a positive number:");
     scanf("%d", &number);
@@ -143,6 +143,99 @@ do {
     }
     dice = dice + 1;
   }
+
+  /*
+  for Loop is used when you the number of time you want to repeat a code block based on the condition
+
+  the syntax l=ook slike
+  for (condition; condition; condition){
+    // block of code to be executed
+  }
+
+  */
+
+  int j;
+  for (j=0; j<=10; j++){
+    printf("%d\n", j);
+  }
+
+  // This for loop calculates the sum of the numbers from 1 to 5
+  int sum = 0;
+  int k;
+  for (k = 0; k<=500; k++){
+    printf("Sum is %d\n", k);
+    sum = sum + k;
+  }
+
+  for (i = 5; i>0; i--){
+    printf("This is the outer i: %d\n", i);
+
+    for (j=0; j<10; ++j){
+      printf("Inner J : %d\n", j);
+    }
+  }
+
+  int table2 = 2;
+  // Printing the multiplication table for number 2
+  for (i=0; i<=12; i++){
+    printf("%d x %d = %d\n", table2, i, table2 * i);
+  }
+
+  int table3 = 3;
+  // Printing the multiplication table for number 2
+  for (i=0; i<=12; i++){
+    printf("%d x %d = %d\n", table3, i, table3 * i);
+  }
+
+  int table4 = 4;
+  // Printing the multiplication table for number 2
+  for (i=0; i<=12; i++){
+    printf("%d x %d = %d\n", table4, i, table4 * i);
+  }
+  int table5 = 5;
+  // Printing the multiplication table for number 2
+  for (i=0; i<=12; i++){
+    printf("%d x %d = %d\n", table5, i, table5 * i);
+  }
+  int table6 = 6;
+  // Printing the multiplication table for number 2
+  for (i=0; i<=12; i++){
+    printf("%d x %d = %d\n", table6, i, table6 * i);
+  }
+  int table7 = 7;
+  // Printing the multiplication table for number 2
+  for (i=0; i<=12; i++){
+    printf("%d x %d = %d\n", table7, i, table7 * i);
+  }
+  int table8 = 8;
+  // Printing the multiplication table for number 2
+  for (i=0; i<=12; i++){
+    printf("%d x %d = %d\n", table8, i, table8 * i);
+  }
+  int table9 = 9;
+  // Printing the multiplication table for number 2
+  for (i=0; i<=12; i++){
+    printf("%d x %d = %d\n", table9, i, table9 * i);
+  }
+  int table10 = 10;
+  // Printing the multiplication table for number 2
+  for (i=0; i<=12; i++){
+    printf("%d x %d = %d\n", table10, i, table10 * i);
+  }
+  int table11 = 11;
+  // Printing the multiplication table for number 2
+  for (i=0; i<=12; i++){
+    printf("%d x %d = %d\n", table11, i, table11 * i);
+  }
+  int table12 = 12;
+  // Printing the multiplication table for number 2
+  for (i=0; i<=12; i++){
+    printf("%d x %d = %d\n", table12, i, table12 * i);
+  }
+
+
+
+
 
   return 0;
 }
