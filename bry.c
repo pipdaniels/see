@@ -1,67 +1,50 @@
 #include <stdio.h>
-#include <stdbool.h>
-#include <string.h>
 
-void myFunction(char name[]){
-  printf("Hello %s\n", name);
-}
+/*
+This file is to explore the possibilities around the file handling, from creation, opening, closing,editing, and deleting
+*/
 
-// int x, y;
 
-void Sum(int x, int y){
-  if (x <= 0 || y <= 0){
-    printf("The number entered must be a positive interger\n");
-  } else {
-    int ans = x + y;
-    printf("The answer is %d\n", ans);
+
+
+
+
+
+
+int main(){
+
+  FILE *fptr;
+  // This fopen() function takes in the filename and n=mode which could be r for read, w for write and a for apend
+
+  // This creates a file if the file does not exist
+  // fptr = fopen("filename.txt", "w");
+
+  // This appends to a file
+  // fptr = fopen("filename.txt", "a");
+
+  // This reads a file
+  fptr = fopen("filename.txt", "r");
+
+
+  // create a string variable to store up to 100 character
+  char text[100];
+
+  // This reads the content of the file
+  fgets(text, 100, fptr);
+
+
+  // Print out the content that has been read and stored in the variable | This only rreads the first line of the file to read all lines in the file, use while loop
+  printf("%s\n", text);
+
+  while (fgets(text, 100, fptr)){
+    printf("%s\n", fptr);
   }
-}
-
-// void sum() {
-//   int x = 5;
-//   int y = 10;
-//   int sum = x + y;
-//   printf("The sum of x + y is: %d\n", sum);
-// }
-
-int sum(int x, int y){
-  int sum = x + y;
-  return sum;
-}
+  // This writes content in to the open file
+  // fprintf(fptr, "\n This is th efirst file to be writtent, \nSigned by Seun Adeniyi");
 
 
-void theFunction(int numbers[5]){
-  for (int i = 0; i < 5; i++){
-    printf("%d\n", numbers[i]);
-  }
-}
-
-int main (){
-  myFunction("Kola!");
-  myFunction("Sola");
-  myFunction("Fola");
-  sum(4, 8);
-  Sum(4,5);
-
-  int number[5] = {45, 56, 67, 78, 89};
-  theFunction(number);
-
-  int array[6];
-
-  array[0] = sum(4, 5);
-  array[1] = sum(32,42);
-  array[2] = sum(42, 53);
-  array[3] = sum(32,48);
-  array[4] = sum(43, 54);
-  array[5] = sum(35,44);
-
-  for (int i = 0; i < 6; i++){
-    printf("The result of %d is %d \n", i + 1, array[i]);
-  }
-
+  // This closes the file after writing
+  fclose(fptr);
 
   return 0;
 }
-
-
-
