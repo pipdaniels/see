@@ -1,50 +1,67 @@
 #include <stdio.h>
+#include <string.h>
 
 /*
 This file is to explore the possibilities around the file handling, from creation, opening, closing,editing, and deleting
 */
 
+struct myStructure
+{                    // Structure declaration
+  char myLetter;     // Member (int variable)
+  int myNum;         // Member (char variable)
+  char myString[30]; // Member (string variable)
+}; // End the strructurre with a semi colon
+
+struct Owner
+{
+  char firstName[9];
+  char lastName[9];
+};
+
+struct Car
+{
+  char name[20];
+  char model[20];
+  int year;
+  struct Owner owner;   // Nested structure
+};
 
 
 
+int
+main()
+{
+  // Create a structiure variable and assign valuie to it
+  struct myStructure s1 = {'D', 45, "Smethunng here"};
+  struct myStructure s2 = {'F', 67, "Garybascb"};
 
 
+  struct Owner person = {"Seun", "Adeniyi"};
 
+  // Modify value the memmbers of Structure s1
+  s1.myLetter = 'G';
+  s1.myNum = 4;
+  strcpy(s1.myString, "Something nnew\n");
 
-int main(){
+  // Print values of the structs members
+  printf("%c\n", s1.myLetter);
+  printf("%d\n", s1.myNum);
+  printf("%s\n", s1.myString);
+  printf("%c\n", s2.myLetter);
+  printf("%d\n", s2.myNum);
+  printf("%s\n", s2.myString);
 
-  FILE *fptr;
-  // This fopen() function takes in the filename and n=mode which could be r for read, w for write and a for apend
+  // Add data to the Car structure
+  struct Car c1 = {"Ford", "Accura", 1997, person};
+  struct Car c2 = {"Topyota", "Corolla", 2007, person};
+  struct Car c3 = {"Porsche", "Cayenne", 1987, person};
+  struct Car c4 = {"BMW", "X3", 2003, person};
 
-  // This creates a file if the file does not exist
-  // fptr = fopen("filename.txt", "w");
-
-  // This appends to a file
-  // fptr = fopen("filename.txt", "a");
-
-  // This reads a file
-  fptr = fopen("filename.txt", "r");
-
-
-  // create a string variable to store up to 100 character
-  char text[100];
-
-  // This reads the content of the file
-  fgets(text, 100, fptr);
-
-
-  // Print out the content that has been read and stored in the variable | This only rreads the first line of the file to read all lines in the file, use while loop
-  printf("%s\n", text);
-
-  while (fgets(text, 100, fptr)){
-    printf("%s\n", fptr);
-  }
-  // This writes content in to the open file
-  // fprintf(fptr, "\n This is th efirst file to be writtent, \nSigned by Seun Adeniyi");
-
-
-  // This closes the file after writing
-  fclose(fptr);
+  // Print out the car data
+  printf("Car 1 has Name %s, Model %s and made in the year %d and owned by %s %s\n", c1.name, c1.model, c1.year, c1.owner.firstName, c1.owner.lastName);
+  printf("Car 2 has Name %s, Model %s and made in the year %d and owned by %s %s\n", c2.name, c2.model, c2.year, c2.owner.firstName, c2.owner.lastName);
+  printf("Car 3 has Name %s, Model %s and made in the year %d and owned by %s %s\n", c3.name, c3.model, c3.year, c3.owner.firstName, c3.owner.lastName);
+  printf("Car 4 has Name %s, Model %s and made in the year %d and owned by %s %s\n", c4.name, c4.model, c4.year, c4.owner.firstName, c4.owner.lastName);
 
   return 0;
 }

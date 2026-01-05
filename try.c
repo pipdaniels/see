@@ -1,16 +1,14 @@
 #include <stdio.h>
 
-
 /*
     This block of code outputs different strings and tests out escape characters like new
     Line, tabs,
-    Inverted comma and 
+    Inverted comma and
     Double back slash
-*/ 
+*/
 
-
-
-int main(){
+int main()
+{
     // This outputs Hello World
     printf("Hello World!\n");
     // This is a variable name that is a character type and holds the value String John
@@ -45,7 +43,6 @@ int main(){
     printf("Hi, It is so nice to meet you %c\n", 'John');
     printf("This is my Letter wrriting age: %f\n", 67.5);
 
-
     // Add two ints together
     int x = 7;
     int y = 5;
@@ -61,7 +58,6 @@ int main(){
     printf("%d\n", f);
     printf("%d\n", g);
 
-
     int studentID = 005;
     int studentAge = 12;
     float studentFee = 674.6;
@@ -75,11 +71,11 @@ int main(){
 
     printf("Value of the Student ID; %i\n", studentID);
     printf("Value of the Student Age; %i\n", studentAge);
-    printf("Value of the Student Fee; %f\n", studentFee); 
-    printf("Value of the Student Fee; %.1f\n", studentFee); 
-    printf("Value of the Student Fee; %.2f\n", studentFee); 
-    printf("Value of the Student Fee; %.3f\n", studentFee); 
-    printf("Value of the Student Height; %.4lf\n", studentHeight); 
+    printf("Value of the Student Fee; %f\n", studentFee);
+    printf("Value of the Student Fee; %.1f\n", studentFee);
+    printf("Value of the Student Fee; %.2f\n", studentFee);
+    printf("Value of the Student Fee; %.3f\n", studentFee);
+    printf("Value of the Student Height; %.4lf\n", studentHeight);
     printf("Value of the Student Grade; %s\n", studentGrade);
     printf("Value of the Student Active; %d\n", studentActive);
 
@@ -98,8 +94,6 @@ int main(){
     printf("The memory size of Area int value is: %zu\n", sizeof(area));
     printf("The memory size of iheigth float value is: %zu\n", sizeof(iheigth));
     printf("The memory size of ilength double value is: %zu\n", sizeof(ilength));
-
-
 
     /*
     int is 2 to 4 bytes in size
@@ -121,27 +115,24 @@ int main(){
     printf("Cost per item: %c%.2f\n", currency, cost_per_item);
     printf("Total cost = %c%.2f\n", currency, total_cost);
 
+    int normalInt = 1000;       // standard int
+    double normalDouble = 3.14; // standard double
 
-
-    int normalInt = 1000;                       // standard int 
-    double normalDouble = 3.14;                 // standard double
-
-    short int small = -100;                     // smaller int
-    unsigned int count = 25;                    // only positive int
-    long int big = 1234567890;                  // larger int
-    long long int veryBig = 9223372036854775807; // very large int
+    short int small = -100;                              // smaller int
+    unsigned int count = 25;                             // only positive int
+    long int big = 1234567890;                           // larger int
+    long long int veryBig = 9223372036854775807;         // very large int
     unsigned long long int huge = 18446744073709551615U; // very large, only positive
-    long double precise = 3.141592653589793238L; // extended precision
+    long double precise = 3.141592653589793238L;         // extended precision
 
-    printf("Normal int: %d\n", normalInt);  // print the value in the normalInt variable
-    printf("Normal double: %lf\n", normalDouble);   //print normalDouble value
+    printf("Normal int: %d\n", normalInt);        // print the value in the normalInt variable
+    printf("Normal double: %lf\n", normalDouble); // print normalDouble value
     printf("Small: %hd\n", small);
     printf("Count: %u\n", count);
     printf("Big: %ld\n", big);
     printf("Very Big: %lld\n", veryBig);
     printf("Huge: %llu\n", huge);
     printf("Precise: %Lf\n", precise);
-
 
     // This lines prints the Sizes of the arg passed in the sizeof() functions
     printf("Size of int: %zu bytes\n", sizeof(int));
@@ -153,7 +144,6 @@ int main(){
     printf("Size of unsigned long long int: %zu bytes\n", sizeof(unsigned long long int));
     printf("Size of long double: %zu bytes\n", sizeof(long double));
 
-    
     // This returns the code 0 for success
     return 0;
 }
