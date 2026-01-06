@@ -1,67 +1,67 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
-
-/*
-This file is to explore the possibilities around the file handling, from creation, opening, closing,editing, and deleting
-*/
-
-struct myStructure
-{                    // Structure declaration
-  char myLetter;     // Member (int variable)
-  int myNum;         // Member (char variable)
-  char myString[30]; // Member (string variable)
-}; // End the strructurre with a semi colon
-
-struct Owner
-{
-  char firstName[9];
-  char lastName[9];
-};
 
 struct Car
 {
-  char name[20];
-  char model[20];
+  char brand[50];
   int year;
-  struct Owner owner;   // Nested structure
 };
 
+/*This code file is to explorre memory allocation in C programming language*/
+// malloc() and calloc() allocates memory and return a pointer to it's address reepsectively
+// realloc() ensurrres memory is reallocated
+/*
+The realloc() function tries to resize the memory at ptr1 and return the same memory address. If it cannot resize the memory at the current address then it will allocate memory at a different address and return the new address instead.
 
+free()
+When you no longer need a block of memory you should deallocate it. Deallocation is also referred to as "freeing" the memory.
 
-int
-main()
+Dynamic memory stays reserved until it is deallocated or until the program ends.
+
+Once the memory is deallocated it can be used by other programs or it may even be allocated to another part of your program.
+*/
+int main()
 {
-  // Create a structiure variable and assign valuie to it
-  struct myStructure s1 = {'D', 45, "Smethunng here"};
-  struct myStructure s2 = {'F', 67, "Garybascb"};
+  int *ptr1, *ptr2;
 
+  ptr1 = malloc(sizeof(*ptr1));
+  ptr2 = calloc(1, sizeof(*ptr2));
 
-  struct Owner person = {"Seun", "Adeniyi"};
+  int *ptr1, *ptr2, size;
 
-  // Modify value the memmbers of Structure s1
-  s1.myLetter = 'G';
-  s1.myNum = 4;
-  strcpy(s1.myString, "Something nnew\n");
+  // Allocate memory for four integers
+  size = 4 * sizeof(*ptr1);
+  ptr1 = malloc(size);
 
-  // Print values of the structs members
-  printf("%c\n", s1.myLetter);
-  printf("%d\n", s1.myNum);
-  printf("%s\n", s1.myString);
-  printf("%c\n", s2.myLetter);
-  printf("%d\n", s2.myNum);
-  printf("%s\n", s2.myString);
+  printf("%d bytes allocated at address %p \n", size, ptr1);
 
-  // Add data to the Car structure
-  struct Car c1 = {"Ford", "Accura", 1997, person};
-  struct Car c2 = {"Topyota", "Corolla", 2007, person};
-  struct Car c3 = {"Porsche", "Cayenne", 1987, person};
-  struct Car c4 = {"BMW", "X3", 2003, person};
+  // Resize the memory to hold six integers
+  size = 6 * sizeof(*ptr1);
+  ptr2 = realloc(ptr1, size);
 
-  // Print out the car data
-  printf("Car 1 has Name %s, Model %s and made in the year %d and owned by %s %s\n", c1.name, c1.model, c1.year, c1.owner.firstName, c1.owner.lastName);
-  printf("Car 2 has Name %s, Model %s and made in the year %d and owned by %s %s\n", c2.name, c2.model, c2.year, c2.owner.firstName, c2.owner.lastName);
-  printf("Car 3 has Name %s, Model %s and made in the year %d and owned by %s %s\n", c3.name, c3.model, c3.year, c3.owner.firstName, c3.owner.lastName);
-  printf("Car 4 has Name %s, Model %s and made in the year %d and owned by %s %s\n", c4.name, c4.model, c4.year, c4.owner.firstName, c4.owner.lastName);
+  printf("%d bytes reallocated at address %p \n", size, ptr2);
+
+  //Allocate memory for one Car struct
+  struct Car *ptr = (struct Car*) malloc(sizeof(struct Car));
+
+  // Check if allocation was successful
+  if (ptr == NULL)
+  {
+    printf("Memory allocation failed.\n");
+    return 1; // Exit the program with an error code
+  }
+
+  // Set values
+  strcpy(ptr->brand, "Honda");
+  ptr->year = 2022;
+
+  // Print values
+  printf("Brand: %s\n", ptr->brand);
+  printf("Year: %d\n", ptr->year);
+
+  // Free memory
+  free(ptr);
 
   return 0;
 }
